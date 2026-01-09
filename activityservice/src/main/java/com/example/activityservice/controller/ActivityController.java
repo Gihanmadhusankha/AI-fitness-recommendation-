@@ -12,8 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/activities")
 public class ActivityController {
-    @Autowired
-    private ActivityService activityService;
+
+    private  final ActivityService activityService;
+
+    public ActivityController(ActivityService activityService) {
+        this.activityService = activityService;
+    }
 
     @PostMapping
     public ResponseEntity<ActivityResponse>trackActivity(@RequestBody ActivityRequest request){
